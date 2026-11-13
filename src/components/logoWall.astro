@@ -19,7 +19,7 @@ const technologies = [
   { name: "NumPy", slug: "numpy" },
   { name: "Pandas", slug: "pandas" },
   { name: "Scikit-Learn", slug: "scikitlearn" },
-  { name: "Matplotlib", customUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/matplotlib/matplotlib-original.svg" }, // Colored Matplotlib
+  { name: "Matplotlib", customUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/matplotlib/matplotlib-original.svg" },
 ];
 ---
 
@@ -30,7 +30,6 @@ const technologies = [
   <div class="flex animate-scroll w-max will-change-transform">
     {
       [...technologies, ...technologies].map((tech, index) => {
-        // If it's a custom URL, use it. Otherwise, use Simple Icons (without the /white filter)
         const iconUrl = tech.customUrl 
           ? tech.customUrl 
           : `https://cdn.simpleicons.org/${tech.slug}`;
@@ -43,7 +42,7 @@ const technologies = [
             <img
               src={iconUrl}
               alt={tech.name}
-              class="h-7 w-auto object-contain transition-transform group-hover:scale-110 opacity-60 group-hover:opacity-100" // Added hover:opacity-100 so they brighten up
+              class="h-7 w-auto object-contain transition-transform group-hover:scale-110 opacity-60 group-hover:opacity-100"
               width="30"
               height="30"
               loading={index < technologies.length ? "eager" : "lazy"}
