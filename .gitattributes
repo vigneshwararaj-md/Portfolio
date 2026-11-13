@@ -1,2 +1,2 @@
 *.astro linguist-detectable=false
-
+*.astro linguist-vendored
