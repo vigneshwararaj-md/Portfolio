@@ -1,0 +1,42 @@
+2. Fix Your Contact Form (Important)
+Since you didn't use Firebase, if someone tries to send you a message right now, it won't go anywhere. We need to fix this so you don't miss out on job opportunities.
+
+The easiest way to make the form work without a backend is to use Formspree (it's free and takes 2 minutes):
+
+Go to Formspree.io and sign up with your GitHub or Google account.
+
+Click "New Form" and name it "Portfolio Contact".
+
+Formspree will give you an endpoint URL (it looks like https://formspree.io/f/xxxxxx).
+
+Go into your VS Code, open src/components/contact.astro.
+
+Find the <form> tag and add action="YOUR_FORMSPREE_URL" method="POST".
+
+Commit, push to GitHub, and Vercel will automatically update your site. Now, when someone submits the form, it will send an email directly to your inbox!
+
+3. Add This Link Everywhere
+You now have a professional portfolio. Go update these places immediately:
+
+LinkedIn: Add it to your "Contact Info" and your "Featured" section.
+
+GitHub: Add it to your GitHub profile bio.
+
+Resume: Put it at the very top.
+
+Cold Emails/Applications: When you apply for Master's programs or jobs, include this link.
+
+4. (Optional) Get a Custom Domain
+Right now your link has .vercel.app at the end. If you want a highly professional link (like vigneshwararaj.com), you can buy a domain from Namecheap or Cloudflare for about ₹800/year. Once you buy it, just go to the "Add Domain" button on that Vercel screen and follow the instructions. (You can do this anytime).
+
+5. How to Update Your Portfolio in the Future
+Whenever you want to add a new project or change a design:
+
+Make the changes in VS Code.
+
+Commit and Push to GitHub (just like we did earlier).
+
+That's it. Vercel is watching your GitHub. It will automatically rebuild your site in the background and update your live link in about 30 seconds.
+
+Go click "Visit" and share the link with your friends and family! You built this! 🚀
+
