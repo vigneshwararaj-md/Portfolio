@@ -1,21 +1,25 @@
 ---
-const baseUrl = import.meta.env.BASE_URL;
-
 const technologies = [
-  "astro",
-  "vue",
-  "react",
-  "typeScript",
-  "tailwindcss",
-  "next",
-  "nodejs",
-  "HTML5",
-  "CSS3",
-  "javaScript",
-  "git",
-  "supabase",
-  "mysql",
-  "bash",
+  { name: "Astro", slug: "astro" },
+  { name: "Vue", slug: "vuedotjs" },
+  { name: "React", slug: "react" },
+  { name: "TypeScript", slug: "typescript" },
+  { name: "TailwindCSS", slug: "tailwindcss" },
+  { name: "Next.js", slug: "nextdotjs" },
+  { name: "Node.js", slug: "nodedotjs" },
+  { name: "HTML5", slug: "html5" },
+  { name: "CSS3", slug: "css" },
+  { name: "JavaScript", slug: "javascript" },
+  { name: "Git", slug: "git" },
+  { name: "Supabase", slug: "supabase" },
+  { name: "MySQL", slug: "mysql" },
+  { name: "Bash", slug: "gnubash" },
+  { name: "Python", slug: "python" },
+  { name: "PyTorch", slug: "pytorch" },
+  { name: "NumPy", slug: "numpy" },
+  { name: "Pandas", slug: "pandas" },
+  { name: "Scikit-Learn", slug: "scikitlearn" },
+  { name: "Matplotlib", customUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/matplotlib/matplotlib-original.svg" }, // Colored Matplotlib
 ];
 ---
 
@@ -25,25 +29,32 @@ const technologies = [
 
   <div class="flex animate-scroll w-max will-change-transform">
     {
-      [...technologies, ...technologies].map((tech, index) => (
-        <div 
-          class="flex items-center gap-2 pr-12 md:pr-20 group transition-all duration-300"
-          aria-hidden={index >= technologies.length ? "true" : "false"}
-        >
-          <img
-            src={`${baseUrl}/svg/${tech}.svg`}
-            alt={tech}
-            class="h-7 w-auto object-contain transition-transform group-hover:scale-110 opacity-60"
-            width="30"
-            height="30"
-            loading={index < technologies.length ? "eager" : "lazy"}
-            decoding="async"
-          />
-          <span class="text-lg font-medium text-[var(--white-icon)] whitespace-nowrap">
-            {tech.charAt(0).toUpperCase() + tech.slice(1)}
-          </span>
-        </div>
-      ))
+      [...technologies, ...technologies].map((tech, index) => {
+        // If it's a custom URL, use it. Otherwise, use Simple Icons (without the /white filter)
+        const iconUrl = tech.customUrl 
+          ? tech.customUrl 
+          : `https://cdn.simpleicons.org/${tech.slug}`;
+
+        return (
+          <div 
+            class="flex items-center gap-2 pr-12 md:pr-20 group transition-all duration-300"
+            aria-hidden={index >= technologies.length ? "true" : "false"}
+          >
+            <img
+              src={iconUrl}
+              alt={tech.name}
+              class="h-7 w-auto object-contain transition-transform group-hover:scale-110 opacity-60 group-hover:opacity-100" // Added hover:opacity-100 so they brighten up
+              width="30"
+              height="30"
+              loading={index < technologies.length ? "eager" : "lazy"}
+              decoding="async"
+            />
+            <span class="text-lg font-medium text-[var(--white-icon)] whitespace-nowrap">
+              {tech.name}
+            </span>
+          </div>
+        );
+      })
     }
   </div>
 </div>
