@@ -4,67 +4,63 @@ interface Props {
 }
 
 const { title } = Astro.props;
-const siteUrl = "https://themewagon.github.io/dark-minimal/";
-const baseUrl = import.meta.env.BASE_URL;
+// IMPORTANT: Replace this with your actual Vercel URL once it's live!
+const siteUrl = "https://vigneshwararaj.vercel.app"; 
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>{title} | Portfolio</title>
+    
+    <!-- The Tab Title -->
+    <title>{title}</title>
+    
     <meta
       name="description"
-      content="Your Name - Software Developer building interactive and seamless digital experiences with cutting-edge frontend development."
+      content="Vigneshwararaj M. - Aspiring AI Engineer and Computer Science student specializing in Machine Learning, Python, and AI application development."
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/png" href={`${baseUrl}/favicon.png`} />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    
     <link rel="canonical" href={siteUrl} />
 
     <link
       rel="preload"
-      href={`${baseUrl}/fonts/montserrat-latin-wght-normal.woff2`}
+      href="/fonts/montserrat-latin-wght-normal.woff2"
       as="font"
       type="font/woff2"
       crossorigin="anonymous"
     />
 
-    <meta
-      property="og:title"
-      content="Your Name | Software Developer"
-    />
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="Vigneshwararaj M. | Aspiring AI Engineer" />
     <meta
       property="og:description"
-      content="Portfolio of Your Name, Software Developer specializing in frontend and interactive experiences."
+      content="Portfolio of Vigneshwararaj M., Computer Science student specializing in AI, Machine Learning, and Data Science."
     />
-    <meta
-      property="og:image"
-      content={`${siteUrl}og.image.png`}
-    />
+    <meta property="og:image" content={`${siteUrl}/og.image.png`} />
     <meta property="og:url" content={siteUrl} />
     <meta property="og:type" content="website" />
-    <meta
-      property="og:site_name"
-      content="Your Name Portfolio"
-    />
+    <meta property="og:site_name" content="Vigneshwararaj M. Portfolio" />
 
-    <!-- Structured Data (JSON-LD) -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Your Name",
-        "alternateName": "Your Name",
-        "url": "https://themewagon.github.io/dark-minimal/",
-        "image": "https://themewagon.github.io/dark-minimal/og.image.png",
-        "sameAs": [
-          "https://github.com",
-          "https://linkedin.com"
-        ],
-        "jobTitle": "Software Developer",
-        "description": "Software Developer building interactive and seamless digital experiences."
-      }
-    </script>
+    <!-- Structured Data (JSON-LD) for Google -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Vigneshwararaj M.",
+      "alternateName": "Vigneshwararaj M.",
+      "url": siteUrl,
+      "image": `${siteUrl}/og.image.png`,
+      "sameAs": [
+        "https://github.com/vigneshwararaj175",
+        "https://www.linkedin.com/in/vigneshwararaj-m-261530299/"
+      ],
+      "jobTitle": "Aspiring AI Engineer",
+      "description": "B.E. Computer Science student specializing in Machine Learning, Python, and AI application development."
+    })} />
   </head>
   <body class="bg-[--background] sm:px-28 lg:px-20 px-9">
     <slot />
